@@ -9,92 +9,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
-	<style>
-		body {
- 			background-color: #767070;
-		}
-		header {
-  			align-items: stretch;
-  			color: white;
-  			justify-content: center;
-  			text-align: center;
-  			font-family: "Mate SC", serif;
-		}
-		header div {
-  			align-items: center;
-  			justify-content: space-around;
-		}
-		section {
-  			background-color: white;
-  			padding-top: 2vw;
-  			padding-left: 2vw;
-  			padding-right: 2vw;
-  			border: 0.5vw solid #000;
-		}
-		.fa-js {
-  			color: yellow;
-		}
-		nav {
-  			display: flex;
-  			justify-content: space-between;
-  			align-items: center;
-		}
-		h2 {
-  			font-family: "Playfair Display", serif;
-  			background-color: #827766;
-  			display: flex;
-  			height: 10vw;
-  			line-height: 10vw;
-  			padding-left: 3vw;
-  			border-bottom: 0.5vw double #000;
-		}
-		article {
-  			height: auto;
-  			background-color: #b5aa9a;
-  			border: 0.5vw double #000;
-		}
-		article p {
-  			padding-left: 3vw;
-		}
-		form {
-  			display: grid;
-  			grid-template-columns: 1fr 1fr;
-  			grid-template-rows: 1fr 1fr 1fr;
-  			grid-template-areas: "input ans" "input ans" "submit ans";
-  			width: 60%;
-  			height: 40%;
-  			margin-left: auto;
-  			margin-right: auto;
-  			border: 1vw double #000;
-  			background-color: rgb(165, 240, 240);
-		}
-		.true {
-  			background-color: #63a34b;
-  			color: white;
-  			display: inline-block;
-  			width: 10vw;
-  			height: 5vh;
-		}
-		input {
-  			width: 100%;
-  			height: 100%;
-  			font-family: "Sigmar One", cursive;
-  			text-align: center;
-  			grid-area: input;
-		}
-		input:focus {
-  			background-color: rgb(235, 229, 229);
-		}
-		button {
-  			grid-area: submit;
-		}
-		.answer {
-  			grid-area: ans;
-  			text-align: center;
-  			margin-top: auto;
-  			margin-bottom: auto;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="JavascriptProjectsStyle.css">
 </head>
 <body class="container-fluid">
 	<header class="row">
@@ -156,199 +71,39 @@
 		</article>
 		<article>
 			<h2>Cash register</h2>
-			<p>Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument (price),
-			payment as the second argument (cash), and cash-in-drawer (cid) as the third argument. <br/>
-			
-			cid is a 2D array listing available currency.
+			<p>Design a cash register drawer function checkCashRegister() that accepts purchase price as the first argument
+        (price),
+        payment as the second argument (cash), and cash-in-drawer (cid) as the third argument. <br />
+
+        cid is a 2D array listing available currency. <br/>
+        
+        The checkCashRegister() function should always return an object with a status key and a change key. <br/>
+        
+        Return {status: "INSUFFICIENT_FUNDS", change: []} if cash-in-drawer is less than the change due, or if you cannot return
+        the exact change. <br>
+        
+        Return {status: "CLOSED", change: [...]} with cash-in-drawer as the value for the key change if it is equal to the
+        change due. <br>
+        
+        Otherwise, return {status: "OPEN", change: [...]}, with the change due in coins and bills, sorted in highest to lowest
+        order, as the value of the change key. <br>
+
+        Examples: <br> 
+        Purchase price: 19.5 <br>
+        Payment: 20 <br>
+        CID: ["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]) <br>
+        Should return:  {status: "OPEN", change: [["QUARTER", 0.5]]} <br>
 			</p>
-			<form>
-				<input type="text" name="" placeholder="Telephone to validate" id="TelephoneInput">
-				<span id="TelephoneAns" class="answer">The answer will be displayed here </span>
-				<button type="button" class="btn btn-primary" id="TelephoneSend"><i class="fas fa-paper-plane"></i> Submit</button>
-			</form>
+			<form class="cashRegister">
+        <input type="text" name="" placeholder="purchase price" id="purchasePrice">
+        <input type="text" name="" placeholder="payment" id="payment">
+        <input type="text" name="" placeholder="Cash in drawer" id="cid">
+        <span id="cashAns" class="answer">The answer will be displayed here </span>
+        <button type="button" class="btn btn-primary" id="cashRegisterSend"><i class="fas fa-paper-plane"></i>
+          Submit</button>
+      </form>
 		</article>
 	</section>
-	<script type="text/javascript">
-		function palindrome() {
-			let str = document.getElementById("PalindromeInput").value;
-			str = str.replace(/[^0-9a-z]/gi, "").toLowerCase()
-			let invStr = ""
-			for (let i = str.length - 1; i >= 0; i--) {
-				invStr += str[i]
-			}
-			let ans = document.getElementById("PalindromeAns");
-			if (invStr == str) {
-				ans.style.backgroundColor = "green";
-				ans.innerText = "It is a Palindrome"
-			}
-			else {
-				ans.style.backgroundColor = "red";
-				ans.innerText = "It isn´t a Palindrome"
-			}
-		}
-
-		function convertToRoman() {
-			let num = document.getElementById("RomanInput").value;
-			let convArr = [["I", "V"], ["X", "L"], ["C", "D"], ["M"]];
-			num = num.toString().split("").map(str => Number(str));
-			let convIndex = num.length - 1;
-			let ansArr = "";
-			for (let elem of num) {
-				if (elem < 5) {
-					if (elem == 4) {
-						ansArr += convArr[convIndex][0] + convArr[convIndex][1];
-					}
-					else {
-						for (let i = 1; i <= elem; i++) {
-							ansArr += convArr[convIndex][0];
-						}
-					}
-				}
-				else {
-					if (elem == 9) {
-						ansArr += convArr[convIndex][0] + convArr[convIndex + 1][0];
-					}
-					else {
-						ansArr += convArr[convIndex][1];
-						elem -= 5;
-						for (let i = 1; i <= elem; i++) {
-							ansArr += convArr[convIndex][0];
-						}
-					}
-				}
-				convIndex -= 1;
-			}
-			document.getElementById("RomanAns").innerText = ansArr;
-		}
-
-
-		function rot() {
-			let str = document.getElementById("CaesarsInput").value;
-			let ans = ""
-			let convArr = Array.from(Array(26).keys()).map(elem => elem + 65).map(elem => String.fromCharCode(elem))
-			for (let elem of str) {
-				let idx = convArr.indexOf(elem);
-				if (idx == -1) {
-					ans += elem;
-				}
-				else {
-					if (idx >= 13) {
-						ans += convArr[idx - 13]
-					}
-					else {
-						ans += convArr[26 - (13 - idx)]
-					}
-				}
-			}
-			document.getElementById("CaesarsAns").innerText = ans;
-		}
-
-		function telephoneCheck() {
-			let ans = false
-			let str = document.getElementById("TelephoneInput").value;
-			if (/^[0-9|\-|\s|\(|\)]+$/.test(str)) {
-				if (str.length >= 10) {
-					if (str.match(/\d/g).length == 11 && str[0] != 1) {
-						return (false);
-					}
-					if (str.match(/\d/g).length > 11) {
-						return (false);
-					}
-					if (/\-/.test(str) && str.match(/\-/g).length > 2) {
-						return (false);
-					}
-					if (/[\(\)]/.test(str)) {
-						if (str.match(/[\(\)]/g).length != 2) {
-							return (false);
-						}
-						if (str[str.indexOf("(") + 4] != ")") {
-							return (false);
-						}
-					}
-					return (true);
-				}
-			}
-			return (false);
-		}
-
-
-		function isEnoughMoney(change, cid) {
-			let moneyAvailable = 0;
-			for (let idx in cid) {
-				moneyAvailable += cid[idx][1];
-			}
-			if (moneyAvailable < change) {
-				return false;
-			}
-			return true;
-		}
-		function checkCashRegister(price, cash, cid) {
-			let change = (cash - price) * 100;
-			if (change == 0) {
-				return { status: "CLOSED", change: cid }
-			}
-			for (idx in cid) {
-				cid[idx][1] *= 100;
-			}
-
-			if (!isEnoughMoney(change, cid)) {
-				return { status: "INSUFFICIENT_FUNDS", change: [] }
-			}
-			let moneyAvailable = 0;
-			for (let idx in cid) {
-				moneyAvailable += cid[idx][1];
-			}
-			if (moneyAvailable == change) {
-				return { status: "CLOSED", change: cid.map(elem => [elem[0], elem[1] / 100]) }
-			}
-			let values = [
-				["PENNY", 1],
-				["NICKEL", 5],
-				["DIME", 10],
-				["QUARTER", 25],
-				["ONE", 100],
-				["FIVE", 500],
-				["TEN", 1000],
-				["TWENTY", 2000],
-				["ONE HUNDRED", 10000]
-			]
-			let ans = [
-				["PENNY", 0],
-				["NICKEL", 0],
-				["DIME", 0],
-				["QUARTER", 0],
-				["ONE", 0],
-				["FIVE", 0],
-				["TEN", 0],
-				["TWENTY", 0],
-				["ONE HUNDRED", 0]
-			]
-
-			let idx = 8
-			while (idx >= 0) {
-				if (values[idx][1] <= change && cid[idx][1] > 0) {
-					ans[idx][1] += values[idx][1]
-					cid[idx][1] -= values[idx][1]
-					change -= values[idx][1]
-				}
-				else {
-					idx -= 1
-				}
-			}
-			if (change != 0) {
-				return { status: "INSUFFICIENT_FUNDS", change: [] }
-			}
-			else {
-				ans = ans.filter(elem => elem[1] != 0);
-				ans = ans.map(elem => [elem[0], elem[1] / 100])
-				return { status: "OPEN", change: ans.reverse() }
-			}
-		}
-
-		document.getElementById("PalindromeSend").addEventListener("click", palindrome, true);
-		document.getElementById("RomanSend").addEventListener("click", convertToRoman, true);
-		document.getElementById("CaesarsSend").addEventListener("click", rot, true)
-		document.getElementById("TelephoneSend").addEventListener("click", func = () => document.getElementById("TelephoneAns").innerText = telephoneCheck(), true)
-	</script>
+	<script type="text/javascript" src="JavascriptProjectsJS.js"></script>
 </body>
 </html>
