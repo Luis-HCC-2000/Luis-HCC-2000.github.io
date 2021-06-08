@@ -182,4 +182,4 @@ function palindrome() {
     document.getElementById("RomanSend").addEventListener("click", convertToRoman, true);
     document.getElementById("CaesarsSend").addEventListener("click", rot, true)
     document.getElementById("TelephoneSend").addEventListener("click", func = () => document.getElementById("TelephoneAns").innerText = telephoneCheck(), true)
-    document.getElementById("cashRegisterSend").addEventListener("click", func = () => document.getElementById("cashAns").innerText= Object.entries(checkCashRegister(document.getElementById("purchasePrice").value, document.getElementById("payment").value, document.getElementById("cid").value )), true))
+    document.getElementById("cashRegisterSend").addEventListener("click", func = () => document.getElementById("cashAns").innerText= Object.entries(checkCashRegister(document.getElementById("purchasePrice").value, document.getElementById("payment").value, document.getElementById("cid").value )), true)
