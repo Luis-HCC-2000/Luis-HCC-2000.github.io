@@ -52,7 +52,7 @@ function palindrome() {
 
 
     function rot() {
-      let str = document.getElementById("CaesarsInput").valuetoUpperCase();
+      let str = document.getElementById("CaesarsInput").value.toUpperCase();
       let ans = ""
       let convArr = Array.from(Array(26).keys()).map(elem => elem + 65).map(elem => String.fromCharCode(elem))
       for (let elem of str) {
