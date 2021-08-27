@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+root {
+  --skyBlue: #29abe2;
+  --magenta: #ed1e79;
+  --gray: gray;
+}
 #Nosotros {
   background-image: url("../images/logoBlanco.png");
   background-repeat: no-repeat;
@@ -14,6 +20,7 @@
   grid-row: 2;
   text-align: center;
   color: rgb(255, 0, 119);
+  font-family: "Pacifico", cursive;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
