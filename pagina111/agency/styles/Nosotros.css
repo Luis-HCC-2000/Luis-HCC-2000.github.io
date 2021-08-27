@@ -1,9 +1,9 @@
 #Nosotros {
-  background-image: url("../images/logoNegro.png");
+  background-image: url("../images/logoBlanco.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: white;
-  color: black;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   display: grid;
   grid-template-rows: 20% 20% 60%;
   grid-template-columns: 25% 25% 25% 25%;
@@ -14,177 +14,58 @@
   grid-row: 2;
   text-align: center;
 }
-#Nosotros .container {
-  grid-row: 3;
-  grid-column: 3/5;
-}
-#NosotrosInfo {
-  display: none;
-}
 
-:root {
-  --background-color: #000000;
-  --color: #000000;
-  --light-theme: #ffffff;
-}
-#Nosotros .container a {
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+#Nosotros a {
+  position: relative;
+  display: inline-block;
+  padding: 25px 30px;
+  margin: 40px 0;
+  color: #03e9f4;
   text-decoration: none;
-  color: #000000;
-}
-#Nosotros .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 220px;
-  height: 60px;
-  background-color: var(--light-theme);
-  cursor: pointer;
-  font-size: 24px;
-  color: var(--color);
-  transition: all 0.3s;
-  position: relative;
-  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
   overflow: hidden;
-  border-radius: 5px;
-  box-shadow: 0 6px 30px -10px #cccccc;
+  margin-right: 50px;
+  grid-column: 3/5;
+  grid-row: 3;
+  height: 20%;
+  width: 50%;
+  justify-self: center;
 }
-.btn:hover {
-  transform: translateX(5px) translateY(-7px);
+#Nosotros a:hover {
+  background: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 200px #03e9f4;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+#Nosotros a:nth-child(1) {
+  filter: hue-rotate(270deg);
 }
 
-.shop-now {
-  position: relative;
-}
-.shop-now .santa-icon {
+#Nosotros a span {
   position: absolute;
-  width: 30px;
-  height: 30px;
-  top: -17px;
-  right: -20px;
-  transform: rotate(14deg);
+  display: block;
 }
-.shop-now .santa-icon img {
+#Nosotros a span:nth-child(1) {
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: animate1 1s linear infinite;
 }
-
-.snowflake-grid {
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 50px;
-  gap: 5px;
-  width: 100px;
-  transform: scale(0.4);
-}
-.snowflake-grid div {
-  border-radius: 5px;
-}
-.snowflake-grid .snowflake-item {
-  position: relative;
-}
-
-.to-left {
-  position: absolute;
-  top: -4px;
-  left: -35px;
-  animation: swing 3s infinite;
-}
-.to-left div {
-  animation: flash 3s infinite;
-}
-
-.to-right {
-  position: absolute;
-  top: -25px;
-  right: -35px;
-  animation: swing 2.5s infinite;
-}
-.to-right div {
-  animation: flash 2.5s infinite;
-}
-
-.border-left {
-  border-left: 4px solid #e6dada;
-}
-
-.border-right {
-  border-right: 4px solid #e6dada;
-}
-
-.border-bottom {
-  border-bottom: 4px solid #e6dada;
-}
-
-.border-top {
-  border-top: 4px solid #e6dada;
-}
-
-.sub-items {
-  height: 28px;
-  width: 28px;
-}
-
-.m-w-15 {
-  width: 15px;
-}
-
-.m-h-15 {
-  height: 15px;
-}
-
-.r-270 {
-  transform: rotate(270deg);
-}
-
-.r-180 {
-  transform: rotate(180deg);
-}
-
-.r-90 {
-  transform: rotate(90deg);
-}
-
-.pull-down {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-}
-
-.pull-down-right {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-}
-
-.pull-right {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-}
-
-.pull-left {
-  position: absolute;
-  left: 5px;
-  top: 5px;
-}
-
-.m-3 {
-  margin: 3px;
-}
-
-@keyframes swing {
-  50% {
-    transform: rotateZ(10deg) scale(0.4);
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
   }
 }
-@keyframes flash {
-  50% {
-    border-color: #485563;
-  }
-}
+
+/* https://codepen.io/bhadupranjal/pen/vYLZYqQ */
