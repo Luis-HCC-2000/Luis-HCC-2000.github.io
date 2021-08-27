@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+body {
+  background-color: #000000;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Lato", sans-serif;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+main {
+  display: grid;
+  grid-template-rows: 40% 60%;
+  height: 240vh;
+}
